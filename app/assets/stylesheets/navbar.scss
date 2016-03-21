@@ -1,0 +1,17 @@
+.navbar{
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-item{
+  flex: 0 0 20%;
+}
+
+.navbar-body{
+  flex: 1 0 auto;
+}
+
+.right-navbar{
+  display: flex;
+  justify-content: space-around;
+}

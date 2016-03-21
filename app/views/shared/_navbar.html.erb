@@ -1,13 +1,34 @@
-<% if !user_signed_in? %>
-  <%= link_to new_user_session_path do %>
-    <p>Connexion</p>
-  <% end %>
+<!-- left logo -->
 
-  <%= link_to new_user_registration_path do %>
-    <p>Inscription</p>
-  <% end %>
-<% else %>
-  <%= link_to destroy_user_session_path do %>
-    <p>Déconnexion</p>
-  <% end %>
-<% end %>
+<div class="navbar">
+  <div class="left-navbar navbar-item">
+    <%= link_to "/" do %>
+      <% image_tag "octocat.png", class: "avatar" %>
+    <% end %>
+  </div>
+  <div class="navbar_pusher navbar-body"></div>
+  <!-- right nav  -->
+  <div class="right-navbar navbar-item">
+    <% if !user_signed_in? %>
+      <%= link_to new_user_session_path do %>
+        <p>Connexion</p>
+      <% end %>
+
+      <%= link_to new_user_registration_path do %>
+        <p>Inscription</p>
+      <% end %>
+    <% else %>
+      <%= link_to gists_path do %>
+        <% if current_user.username? %>
+            <p><%= current_user.username %>'s gists</p>
+          <% else %>
+            <p>My gists</p>
+        <% end %>
+      <% end %>
+
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <p>Déconnexion</p>
+      <% end %>
+    <% end %>
+  </div>
+</div>

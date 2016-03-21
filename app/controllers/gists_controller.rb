@@ -2,7 +2,7 @@ class GistsController < ApplicationController
   before_action :set_gist, only: [:show, :edit, :update, :destroy]
 
   def index
-    @gists = Gist.all
+    @gists = current_user.gists
   end
 
   def show
@@ -13,8 +13,8 @@ class GistsController < ApplicationController
   end
 
   def create
-    @gist = Gist.new(gist_params)
-    if @gist.save
+    @gist = current_user.gists.build(gist_params)
+    if @gist.save!
       redirect_to gist_path(@gist)
     else
       render :new

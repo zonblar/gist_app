@@ -6,6 +6,19 @@
 
 <div class="container new-discussion-timeline experiment-repo-nav">
   <div class="repository-content gist-content context-loader-container">
-    <trix-editor></trix-editor>
+    <%= simple_form_for @gist do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :content, id: "x", value: "content", input_html: {class: "hidden"}, name:"content", label: false%>
+      <trix-editor input="x" class="trix-content" style="height: 250px;"></trix-editor>
+      <%= f.input :is_public %>
+      <%= f.button :submit, id:"trix-submit" %>
+    <% end %>
   </div>
 </div>
+
+<script>
+  $("#trix-submit").click(function(){
+    $('#gist_content').val($('trix-editor').text());
+  });
+</script>
