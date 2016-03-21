@@ -1,1 +1,13 @@
-<h1>Hello World</h1>
+<% if !user_signed_in? %>
+  <%= link_to new_user_session_path do %>
+    <p>Connexion</p>
+  <% end %>
+
+  <%= link_to new_user_registration_path do %>
+    <p>Inscription</p>
+  <% end %>
+<% else %>
+  <%= link_to destroy_user_session_path do %>
+    <p>Déconnexion</p>
+  <% end %>
+<% end %>

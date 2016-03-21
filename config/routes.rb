@@ -2,10 +2,8 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  devise_for :users do
-    resources :gists
-  end
+  devise_for :users
 
-  resources :gists, only: :index
+  resources :gists
 
   end
