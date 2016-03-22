@@ -15,4 +15,6 @@
 //= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
+//= require algolia/v3/algoliasearch.min
+//= require algolia/typeahead.jquery
 //= require_tree .

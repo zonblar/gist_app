@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -26,9 +26,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 
 gem 'bootstrap-sass'
-gem 'font-awesome-sass'
+gem "font-awesome-rails"
 gem 'simple_form'
 gem 'faker', '~> 1.6', '>= 1.6.3'
+gem "algoliasearch-rails"
+gem "figaro"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
