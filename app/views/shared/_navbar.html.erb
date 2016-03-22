@@ -11,11 +11,11 @@
   <div class="right-navbar navbar-item">
     <% if !user_signed_in? %>
       <%= link_to new_user_session_path do %>
-        <p>Connexion</p>
+        <p>Log in</p>
       <% end %>
 
       <%= link_to new_user_registration_path do %>
-        <p>Inscription</p>
+        <p>Sign up</p>
       <% end %>
     <% else %>
       <%= link_to gists_path do %>
@@ -27,7 +27,7 @@
       <% end %>
 
       <%= link_to destroy_user_session_path, method: :delete do %>
-        <p>Déconnexion</p>
+        <p>Log out</p>
       <% end %>
     <% end %>
   </div>

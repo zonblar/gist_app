@@ -1,5 +1,19 @@
-<div class="container text-center" style="padding-top: 100px;">
-  <%= link_to new_gist_path, class: "btn btn-primary" do %>
-    <h1>Create a gist</h1>
-  <% end %>
+<div class="container" style="padding-top: 100px;">
+  <div class="text-center">
+    <%= link_to new_gist_path, class: "btn btn-primary" do %>
+      <h1 >Create a gist</h1>
+    <% end %>
+  </div>
+  <div class="row">
+    <h3 class= "text-center" style="padding:50px;">Newest Gists</h3>
+    <% @gists.each do |gist| %>
+      <div class="col-xs-3 col-xs-offset-1">
+        <h4><%= gist.name %></h4>
+        <p><%= gist.user.username %></p>
+        <p><%= gist.created_at.strftime("%m/%d/%y")%> at <%=gist.created_at.strftime("%I:%M %p")%></p>
+        <p><%= gist.description %></p>
+        <p><%= gist.content %></p>
+      </div>
+    <% end %>
+  </div>
 </div>
