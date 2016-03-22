@@ -4,4 +4,11 @@ class Gist < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true
   validates :content, presence: true
+
+  include AlgoliaSearch
+
+  algoliasearch do
+    attribute :name, :description, :content, :is_public => true
+  end
+
 end

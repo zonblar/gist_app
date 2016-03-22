@@ -6,7 +6,9 @@
       <% image_tag "octocat.png", class: "avatar" %>
     <% end %>
   </div>
-  <div class="navbar_pusher navbar-body"></div>
+  <div class="navbar-search navbar-body">
+    <%= render 'shared/search_form'%>
+  </div>
   <!-- right nav  -->
   <div class="right-navbar navbar-item">
     <% if !user_signed_in? %>
