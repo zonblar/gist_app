@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321235007) do
+ActiveRecord::Schema.define(version: 20160322013013) do
 
   create_table "gists", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.string   "description", limit: 255
     t.string   "content",     limit: 255
-    t.boolean  "is_public"
+    t.boolean  "is_public",               default: true
     t.integer  "user_id",     limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   add_index "gists", ["user_id"], name: "index_gists_on_user_id", using: :btree
