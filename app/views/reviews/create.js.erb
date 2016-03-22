@@ -1,0 +1,8 @@
+<% if @review.errors.any? %>
+  $('#new_review').html("<%= j render 'review/form', gist: @gist, review: @review %>");
+<% else %>
+  var new_review = $("<%= j render 'reviews/show', review: @review %>").hide();
+  $('#review').append(new_review);
+  new_review.slideDown();
+  $('#review_content').val('');
+<% end %>

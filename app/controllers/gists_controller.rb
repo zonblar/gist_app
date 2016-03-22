@@ -6,6 +6,8 @@ class GistsController < ApplicationController
   end
 
   def show
+    @user = @gist.user
+    @review = Review.new
   end
 
   def new
@@ -35,7 +37,7 @@ class GistsController < ApplicationController
 
   private
   def gist_params
-    params.require(:gist).permit(:name, :description, :content, :is_public)
+    params.require(:gist).permit(:name, :description, :content, :is_public, :user_id)
   end
 
   def set_gist

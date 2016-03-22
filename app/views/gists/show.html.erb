@@ -1,11 +1,30 @@
 <div class="container">
+
   <div class="row">
     <div class="col-xs-12">
       <h1><%= @gist.name %></h1>
-      <p><%= @gist.description %></p>
+      <h3><%= @gist.description %></h3>
       <div class="trix-content" style="padding-top: 25px;">
         <%= @gist.content %>
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-xs-8">
+      <hr>
+      <div id="review">
+        <% if @gist.reviews.blank? %>
+          <h3>Be the first to review <%= @gist.name %></h3>
+        <% else %>
+          <h3><% @gist.reviews.count %> Reviews</h3>
+          <% @gist.reviews.each do |review| %>
+            <%= render 'reviews/show', review: review %>
+          <% end %>
+        <% end %>
+        <%= render 'reviews/form', review: @review, gist: @gist %>
+
+      </div>
+  </div>
+
 </div>

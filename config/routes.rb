@@ -6,4 +6,8 @@ Rails.application.routes.draw do
 
   resources :gists
 
+  resources :gists do
+    resources :reviews, only: [:new, :create]
+  end
+
   end
