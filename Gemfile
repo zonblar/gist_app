@@ -29,8 +29,8 @@ gem 'bootstrap-sass'
 gem "font-awesome-rails"
 gem 'simple_form'
 gem 'faker', '~> 1.6', '>= 1.6.3'
-gem "algoliasearch-rails"
 gem "figaro"
+gem "scoped_search"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

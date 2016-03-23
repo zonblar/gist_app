@@ -7,7 +7,9 @@
     <% end %>
   </div>
   <div class="navbar-search navbar-body">
-    <%= render 'shared/search_form'%>
+    <%= simple_form_for gists_path , :method => :get do |f| %>
+      <%= f.input :name, label: false, placeholder: "Search for a gist" %>
+    <% end %>
   </div>
   <!-- right nav  -->
   <div class="right-navbar navbar-item">
@@ -20,7 +22,7 @@
         <p>Sign up</p>
       <% end %>
     <% else %>
-      <%= link_to gists_path do %>
+      <%= link_to "/" do %>
         <% if current_user.username? %>
             <p><%= current_user.username %>'s gists</p>
           <% else %>

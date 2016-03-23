@@ -5,10 +5,7 @@ class Gist < ActiveRecord::Base
   validates :description, presence: true
   validates :content, presence: true
 
-  include AlgoliaSearch
-
-  algoliasearch do
-    attribute :name, :description, :content, :is_public => true
-  end
-
+  scoped_search :on => :name, :complete_value => :true
+  scoped_search :on => :description, :complete_value => :false
+  scoped_search :on => :content, :complete_value => :false
 end

@@ -4,7 +4,7 @@ class CreateGists < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.string :content
-      t.boolean :is_public
+      t.boolean :is_public, :default => true
       t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false

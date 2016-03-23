@@ -2,7 +2,8 @@ class GistsController < ApplicationController
   before_action :set_gist, only: [:show, :edit, :update, :destroy]
 
   def index
-    @gists = current_user.gists
+    search_query = params_retriever["search_params"]
+    @gists = Gist.search_for(search_query).where("is_public = true")
   end
 
   def show
@@ -16,7 +17,8 @@ class GistsController < ApplicationController
 
   def create
     @gist = current_user.gists.build(gist_params)
-    if @gist.save!
+    # gist_params[:is_public] == "0" ? @gist.is_public = false : @gist.is_public = true
+    if @gist.save
       redirect_to gist_path(@gist)
     else
       render :new
@@ -44,4 +46,7 @@ class GistsController < ApplicationController
     @gist = Gist.find(params[:id])
   end
 
+  def params_retriever
+    params.require(:search)
+  end
 end

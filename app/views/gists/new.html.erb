@@ -11,7 +11,7 @@
       <%= f.input :description %>
       <%= f.input :content, id: "x", value: "content", input_html: {class: "hidden"}, name:"content", label: false%>
       <trix-editor input="x" class="trix-content" style="height: 250px;"></trix-editor>
-      <%= f.input :is_public %>
+      <%= f.input :is_public, :as => :boolean, input_html: { :checked => true } %>
       <%= f.button :submit, id:"trix-submit" %>
     <% end %>
   </div>
